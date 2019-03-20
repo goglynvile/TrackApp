@@ -10,11 +10,15 @@ import UIKit
 
 class TrackTableViewCell: UITableViewCell {
 
+    // MARK: - IBOutlets
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblGenre: UILabel!
     
+    // MARK: - Public variables
+    
+    /// Update UI when setting a track object
     weak var track: Track? {
         didSet {
             guard let track = track else { return }
@@ -41,23 +45,15 @@ class TrackTableViewCell: UITableViewCell {
         }
     }
     
+    // MARK: - Override methods
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
-        // design controls
+        // customize controls
         self.lblGenre.layer.cornerRadius = 5
         self.lblGenre.clipsToBounds = true
-        
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-        
-        if selected {
-            
-        }
     }
 
 }

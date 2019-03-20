@@ -10,9 +10,11 @@ import UIKit
 
 class TrackListTableViewController: UITableViewController {
 
-    var detailViewController: DetailViewController? = nil
-    var tracks = [Track]()
+    // MARK: - Fileprivate variables
+    fileprivate var detailViewController: DetailViewController? = nil
+    fileprivate var tracks = [Track]()
 
+    // MARK: ViewController life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,8 +31,8 @@ class TrackListTableViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
 
-    //MARK: Track List Table View Controller methods
-    private func fetchTracks() {
+    // MARK: - Track List Table View Controller methods
+    fileprivate  func fetchTracks() {
         let downloadData = DownloadData(urlString: Constant.serverUrl) { (data, error) in
 
             guard let data = data?.toJSONDictionary(), let arrTracks = data["results"] as? Array<Dictionary<String, Any>>, error == nil else {
@@ -60,28 +62,22 @@ class TrackListTableViewController: UITableViewController {
                 self.tableView.reloadData()
             }
             
+            
+            // check the last track and select the track
             if let lastTrackIdentifier = Common.getLastTrackIdentifier(), let index = self.tracks.firstIndex(where: {$0.identifier == lastTrackIdentifier}) {
                 
                 let indexPath = IndexPath(row: index, section: 0)
                 OperationQueue.main.addOperation {
-
                    self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .middle)
-
                    self.performSegue(withIdentifier: "showDetail", sender: nil)
-                    
                 }
-
             }
-            
-        
-            
         }
         Downloader.shared.startDownload(with: downloadData)
     }
 
 
     // MARK: - Segues
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
@@ -105,7 +101,7 @@ class TrackListTableViewController: UITableViewController {
         return 1
     }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return (Common.getLastVisitString() != nil) ? 30 : 0
+        return (Common.getLastVisitString() != nil) ? 40 : 0
     }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         guard let last = Common.getLastVisitString() else { return nil }

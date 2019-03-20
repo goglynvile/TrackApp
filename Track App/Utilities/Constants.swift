@@ -8,11 +8,13 @@
 
 import Foundation
 
+/// Constant values.
 struct Constant {
     
     static let appTitle = "Track App"
     static let serverUrl = "https://itunes.apple.com/search?term=star&amp;country=au&amp;media=movie"
     
+    /// Keys for values to be saved.
     struct LastValues {
         static let dateVisited = "lastDateVisited"
         static let selectedTrackId = "lastSelectedTrackId"

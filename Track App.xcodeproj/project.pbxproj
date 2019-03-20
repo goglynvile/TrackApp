@@ -18,8 +18,6 @@
 		000632E32240D5AD00C9794C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000632E22240D5AD00C9794C /* Constants.swift */; };
 		000632E52240D79100C9794C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000632E42240D79100C9794C /* Common.swift */; };
 		000632E82240DAEF00C9794C /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000632E72240DAEF00C9794C /* TrackTableViewCell.swift */; };
-		005C08F82241CCF200B8ECB5 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C08F72241CCF200B8ECB5 /* HeaderView.swift */; };
-		005C08FB2241CD8900B8ECB5 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005C08FA2241CD8900B8ECB5 /* HeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +34,6 @@
 		000632E22240D5AD00C9794C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		000632E42240D79100C9794C /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		000632E72240DAEF00C9794C /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
-		005C08F72241CCF200B8ECB5 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		005C08FA2241CD8900B8ECB5 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,19 +117,9 @@
 		000632E62240DAC100C9794C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				005C08F92241CD7500B8ECB5 /* Nibs */,
 				000632E72240DAEF00C9794C /* TrackTableViewCell.swift */,
-				005C08F72241CCF200B8ECB5 /* HeaderView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		005C08F92241CD7500B8ECB5 /* Nibs */ = {
-			isa = PBXGroup;
-			children = (
-				005C08FA2241CD8900B8ECB5 /* HeaderView.xib */,
-			);
-			path = Nibs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,7 +183,6 @@
 				000632D32240AD4300C9794C /* LaunchScreen.storyboard in Resources */,
 				000632D02240AD4300C9794C /* Assets.xcassets in Resources */,
 				000632CE2240AD2B00C9794C /* Main.storyboard in Resources */,
-				005C08FB2241CD8900B8ECB5 /* HeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,7 +194,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				000632CB2240AD2A00C9794C /* DetailViewController.swift in Sources */,
-				005C08F82241CCF200B8ECB5 /* HeaderView.swift in Sources */,
 				000632E12240B48300C9794C /* Track.swift in Sources */,
 				000632C92240AD2A00C9794C /* TrackListTableViewController.swift in Sources */,
 				000632E82240DAEF00C9794C /* TrackTableViewCell.swift in Sources */,

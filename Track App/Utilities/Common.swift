@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+/// A class that contains common methods to be used all through out the app.
 class Common {
     
     /// Show alert message.
@@ -36,7 +38,6 @@ class Common {
     
     /// Save the last identifier.
     class func saveLastTrackIdentifier(identifier: Int?) {
-        print("saveLastTrack: \(identifier)")
         UserDefaults.standard.set(identifier, forKey: Constant.LastValues.selectedTrackId)
     }
     

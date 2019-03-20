@@ -8,8 +8,10 @@
 
 import UIKit
 
+/// A model class from JSON value.
 class Track {
     
+    // MARK: - Public variables
     var identifier: Int?
     var name: String?
     var artwork: String?
@@ -18,17 +20,11 @@ class Track {
     var genre: String?
     var longDescription: String?
     
+    var image: UIImage?
+    
+    /// Price string value to display
     var priceString: String? {
         guard let pr = price, let cur = currency else { return nil}
         return String(format: "%@ %.02f", cur, pr)
     }
-    
-    var identifierString: String {
-        if let iden = identifier {
-            return "\(iden)"
-        }
-        return ""
-    }
-    
-    var image: UIImage?
 }

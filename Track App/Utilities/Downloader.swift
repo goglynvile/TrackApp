@@ -67,11 +67,8 @@ public typealias DownloadedData = Data
 public extension DownloadedData {
 
     // MARK: - Declaration of typealias
-    
     typealias ReadableImage = UIImage
     typealias ReadableJSONDictionary = Dictionary<String, Any>
-    typealias ReadableJSONArray = Array<Any>
-    typealias ReadableVideoURL = URL
     
     // MARK: - Data to Readable format methods
     
@@ -95,60 +92,6 @@ public extension DownloadedData {
             return nil
         }
         
-    }
-    
-    /// Returns the JSON array object from reading the data.
-    ///
-    /// - Returns: A 'ReadableJSONArray' converted from 'DownloadedData'
-    func toJSONArray() -> ReadableJSONArray? {
-        do {
-            let jsonResponse = try JSONSerialization.jsonObject(with: self, options: [])
-            return jsonResponse as? ReadableJSONArray
-        }
-        catch {
-            return nil
-        }
-    }
-    
-//    func toJSONArrayFromTxt() -> ReadableJSONArray? {
-//        let text = String(data: self, encoding: .utf8)
-//        guard let data = text?.data(using: .utf8, allowLossyConversion: false) else { return nil}
-//        let any = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-//        
-//        print("text: \(any)")
-//        return any as? Data.ReadableJSONArray
-//    }
-
-    /// Returns the JSON array object from reading the data.
-    ///
-    /// - Parameters:
-    ///  - urlString: The url string of the video to be downloaded.
-    /// - Returns: A 'ReadableVideoURL' of the video in disk from 'DownloadedData'
-    func toVideoUrl(urlString: String) -> ReadableVideoURL? {
-        
-        // get the url of the disk directory
-        guard let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-        let videoURL = documentsURL.appendingPathComponent((urlString as NSString).lastPathComponent)
-        
-        //Check if the video is already in the disk
-        if FileManager.default.fileExists(atPath: videoURL.path) {
-            return videoURL
-        }
-        do {
-            
-            //write the video to the location
-            try self.write(to: videoURL)
-            
-            //remove the cached video response
-            if let url = URL(string: urlString)  {
-                let urlRequest = URLRequest(url: url)
-                URLCache.shared.removeCachedResponse(for: urlRequest)
-            }
-            return videoURL
-        }
-        catch {
-            return nil
-        }
     }
 }
 
